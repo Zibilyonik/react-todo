@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "./TodoItem.module.css"
 
-function TodoItem(props) {
+const TodoItem = props => {
   const completedStyle = {
     fontStyle: "italic",
     color: "#595959",
@@ -22,6 +22,12 @@ function TodoItem(props) {
       setEditing(false);
     }
   }
+  
+  useEffect(() => {
+    return () => {
+      console.log("Cleaning up...")
+    }
+  }, [])
 
   let viewMode = {}
   let editMode = {}
